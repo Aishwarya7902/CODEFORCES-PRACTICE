@@ -1,1 +1,82 @@
+PROBLEM LINK: https://codeforces.com/problemset/problem/1554/A
+BEST EXPLANATION: https://youtu.be/FUYwnOrilvk
+TIME COMPLEXITY(OPTIMAL):O(N)
+SPACE COMPLEXITY(OPTIMAL) :O(1)
+
+
+
+
+
+ BRUTE FORCE CODE:(GOT TLE AS TIME COMPLEXITY WAS O(N^2)//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ #include<bits/stdc++.h>
+#include<iostream>
+using namespace std;
+int maxi,mini,curr;
+int maximum(int *arr,int a ,int b){
+                int maxx=INT_MIN;
+                for(int i=a;i<=b;i++){
+                                if(arr[i]>maxx)maxx=arr[i];
+                }
+                return maxx;
+}
+int minimum(int *arr,int a ,int b){
+                int mini=INT_MAX;
+                for(int i=a;i<=b;i++){
+                                if(arr[i]<mini)mini=arr[i];
+                }
+                return mini;
+}
+int main(){
+                int t;
+                cin>>t;
+                while(t--){
+                                int n;
+                                cin>>n;
+                                ll a[n];
+                                int ans=INT_MIN;
+                                
+                                for(int i=0;i<n;i++){
+                                                cin>>arr[i];
+                                }
+                                for(int i=1;i<n;i++){
+                                                for(int j=i+1;i<=n;j++){
+                                                      maxi=maximum(arr,i-1,j-1);
+                                                      mini=minimum(arr,i-1,j-1);
+                                                      curr=maxi*mini;
+                                                      if(curr>ans)ans=curr;
+                                                }
+                                }
+                                cout<<ans<<endl;
+                                
+                }
+                return 0;
+}
+OPTIMISED CODE://////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int t;
+                cin>>t;
+                while(t--){
+                                int n;
+                                cin>>n;
+                                long long int a[n];
+                                for(int i=0;i<n;i++){
+                                                cin>>a[i];
+                                }
+                                long long int ans=INT_MIN;
+                                for(int i=0;i<n-1;i++){
+                                                ans=max(a[i]*a[i+1],ans);
+                                }
+                                cout<<ans<<"\n";
+                }
+       return 0;         
+                
+} 
+ one more submission:https://codeforces.com/contest/1554/submission/124748205    (agar array integer type ka hai and ans long long type ka to 1ll*arr[i]*arr[i+1] kar lo isse long me convert ho jayega overflow hone se pahle)
+
 
